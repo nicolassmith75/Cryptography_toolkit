@@ -1,6 +1,5 @@
 from crypto_toolkit.classical.caesar import caesar_encrypt, caesar_decrypt, brute_force_caesar
 
-
 def test_caesar_known_value():
     assert caesar_encrypt("ABC XYZ", 3) == "DEF ABC"
 

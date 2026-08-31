@@ -6,7 +6,7 @@ Educational implementation of the Vigenere cipher.
 WARNING: This module is for learning only. Do not use the Vigenere cipher
 to protect real information.
 """
-
+import caesar
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
@@ -23,7 +23,13 @@ def num_to_char(n: int) -> str:
 def vigenere_encrypt(plaintext: str, keyword: str) -> str:
     """Encrypt plaintext with a Vigenere cipher."""
     # TODO: Implement in Lab 01.
-    raise NotImplementedError
+    coded_message = ""
+    for spot in range(len(plaintext)):
+        letter = plaintext[spot]
+        keylength = len(keyword)
+        key = ALPHABET.index(keyword[spot % keylength])
+        coded_message = coded_message + caesar.caesar_encrypt(letter, key)
+
 
 
 def vigenere_decrypt(ciphertext: str, keyword: str) -> str:
@@ -36,3 +42,6 @@ def vigenere_analysis(ciphertext: str) -> list[tuple[int, str]]:
     """Return analysis of various lengths of passphrase"""
     # TODO: Implement in Lab 01.
     raise NotImplementedError
+
+
+
