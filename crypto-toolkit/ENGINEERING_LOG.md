@@ -46,3 +46,15 @@ Security is more ambigous than imagined, there has to be many pieces of the puzz
 
 ### Reflection
 The claim that we make when saying a cryptographic system is secure, is that we determined that the time that it would take for someone to crack the system is not possible. This requires a amount of computing power, financial resources, and time, that for example adversaries are currently able to do. The key generation in order to complete those requirements we ensure that they are truly coming from a sufficient long term truly random source, and not anything that can be predicted. We also are assuming in certain scenarios that the environment is secure and no other side-channel leaks are possible or have been updated. The likelihood that an attacker has all of these avenues cleared is very unlikely, so when people say cryptographic system is secure, they are actually saying that the system has a long term key, key generation is truly random, there are no underlying vulnerabiliites, and any other risks have been assessed and determined that there is anything that has been recognized as a possible threat.
+
+
+## Week 4 - Toolkit v0.4
+
+### Added
+- Educational block cipher helper functions for CYBR 3570.
+
+### Security Lesson
+Do not use the same padding everytime, you need to make them random in order to not have an attacker figure out any repetition. Ensuring confidentiality and integrity of the encryption are as important to a strong encryption than the mathmatical and strucutre of the code. 
+
+### Reflection
+Using AES as a cipher is strong, but encryption can still fail with ECB since it can produce the same type of ciphertext. It becomes a weak and fails at a strong encryption. Applying the wrong techniques can create a strong AES encryption into a weak encryption since implentation can give hints, such as padding, adding the extra characters to ensure that it fits the cipher block, can lead to attacks that help them to decrypt without knowing the key. Implementating is a core aspect of a overall great encryption. Encryption needs to ensure that every aspect is vetted and makes sense not just mathmatically. Verifying the authenicated encryption ensuring that noone tampered with the, for example the shared key. I have learned that not only does the encryption matter, but the implementation also is very important. You can have a strong encryption technique, but you also need to ensure there is no traces that an attacker is able to gain any hints from outside data that can leak mechanisms in transit and also the structure of the data.
